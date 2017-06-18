@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dialect": "sqlite",
+	"storage": "./resources/feeding.db"
+  },
+  "test": {
+	  "dialect": "sqlite",
+  	"storage": "./resources/feeding.db"
+  },
+  "production": {
+	  "dialect": "sqlite",
+  	"storage": "./resources/feeding.db"
+  }
+}
