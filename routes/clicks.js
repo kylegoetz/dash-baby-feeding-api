@@ -1,25 +1,25 @@
-var express = require('express');
-var router = express.Router();
+const Router = require('restify-router').Router;
+const router = new Router();
 const models = require('../models');
 
 router.get('/', (req, res, next) => {
 	models.Click.findAll()
-	.then(results => res.status(200).json(results))
-	.catch(err => res.status(500).send(err));
+	.then(results => res.json(200, results))
+	.catch(err => res.send(500, err));
 });
 
 /* POST click listing. */
 router.post('/:dashMacAddress', function(req, res, next) {
 	//add to DB
 	if(  req.params.dashMacAddress.length < 12 || isNaN(`0x${req.params.dashMacAddress}`)  ) {
-		return res.status(500).json({success: false, message: 'Not a valid MAC address'});
+		return res.json(500, {success: false, message: 'Not a valid MAC address'});
 	}
 	return models.Click.upsert(req.params)
 	.then(() => {
-		res.status(200).json({success:true});
+		res.json(200, {success:true});
 	})
 	.catch(err => {
-		res.status(500).send(err);
+		res.send(500, err);
 	});
 });
 
