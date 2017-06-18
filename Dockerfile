@@ -5,4 +5,4 @@ WORKDIR /app
 
 CMD ["npm", "start"]
 
-EXPOSE 3001
+EXPOSE 3000
