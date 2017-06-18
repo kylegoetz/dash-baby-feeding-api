@@ -4,6 +4,18 @@ This API is designed (but does not have) to run in a Docker container and receiv
 POST actions from the related Dash Capture app. It can also be queried
 by a UI to present information.
 
+To build the Docker image,
+
+`docker build -t some/thing .`
+
+To deploy via Docker image,
+
+`docker run some/thing`
+
+If you want to persist the database outside of the container,
+
+`docker run -v path/to/resources:/app/resources --restart always some/thing`
+
 Right now the only HTTP actions are to
 
 ## POST /clicks/:dashMacAddress
