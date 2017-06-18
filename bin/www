@@ -13,13 +13,14 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+//app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
+const server = app;
 
 const models = require('../models');
 models.sequelize.sync().then(() => {
